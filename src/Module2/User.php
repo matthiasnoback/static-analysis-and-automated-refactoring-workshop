@@ -5,13 +5,11 @@ namespace App\Module2;
 
 final class User
 {
-    private int $id;
     private string $username;
     private \DateTimeImmutable $lastModified;
 
-    public function __construct(int $id, string $username, \DateTimeImmutable $lastModified)
+    public function __construct(string $username, \DateTimeImmutable $lastModified)
     {
-        $this->id = $id;
         $this->username = $username;
         $this->lastModified = $lastModified;
     }

@@ -16,8 +16,8 @@ final class UserRepository
         throw new \RuntimeException('User not found');
     }
 
-    public function save(User $user): void
+    public function save(int $id, User $user): void
     {
-        $this->users[$user->id()] = $user;
+        $this->users[$id] = $user;
     }
 }
