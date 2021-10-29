@@ -13,7 +13,15 @@ return static function (
     $parameters->set(
         Option::PATHS,
         [
-            __DIR__ . '/src'
+            __DIR__ . '/src',
+            __DIR__ . '/utils'
+        ]
+    );
+
+    $parameters->set(
+        Option::SKIP,
+        [
+            'Fixtures'
         ]
     );
 

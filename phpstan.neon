@@ -1,14 +1,6 @@
 parameters:
     level: max
     paths:
-        - src
-#        - legacy
-    tmpDir: %currentWorkingDirectory%/cache/phpstan
-
-#    reportUnmatchedIgnoredErrors: false
-
-#    ignoreErrors:
-#        - '#Call to sprintf contains#'
-
-#includes:
-#    - phpstan-baseline.neon
+#        - src/Module1
+#        - src/Module2
+        - src/Module3
