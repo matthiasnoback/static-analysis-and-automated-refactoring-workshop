@@ -1,0 +1,5 @@
+services:
+	-
+		class: Utils\PHPStan\CommandBusReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension

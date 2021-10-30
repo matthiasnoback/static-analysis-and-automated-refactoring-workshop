@@ -16,6 +16,8 @@ final class DynamicInstantiationRuleTest extends RuleTestCase
 
     public function testRulePreventsDynamicInstantiation(): void
     {
+        $this->markTestIncomplete('Enable this test when working on Module9');
+
         $this->analyse(
             [__DIR__ . '/Fixtures/dynamic-instantiation.php'],
             [
@@ -29,6 +31,8 @@ final class DynamicInstantiationRuleTest extends RuleTestCase
 
     public function testRuleSkipsNormalClassNameInstantiation(): void
     {
+        $this->markTestIncomplete('Enable this test when working on Module9');
+
         $this->analyse(
             [__DIR__ . '/Fixtures/skip-class-name-instantiation.php'],
             [] // no errors
