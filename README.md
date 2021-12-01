@@ -13,7 +13,7 @@
 - Clone this repository (`git clone git@github.com:matthiasnoback/static-analysis-and-automated-refactoring-workshop.git`) and `cd` into it.
 - Run `bin/install`.
 
-Now run `bin/analyze`. You should see a number of issues that we'll tackle during the workshop.
+Now run `bin/phpstan`. You should see a number of issues that we'll tackle during the workshop.
 
 ### Cleaning up
 
