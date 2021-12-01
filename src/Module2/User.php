@@ -6,24 +6,24 @@ namespace App\Module2;
 final class User
 {
     private string $username;
-    private \DateTimeImmutable $lastModified;
+    private int $age;
 
-    public function __construct(string $username, \DateTimeImmutable $lastModified)
+    public function __construct(string $username, int $age)
     {
         $this->username = $username;
-        $this->lastModified = $lastModified;
+        $this->age = $age;
     }
 
-    public function toArray(): array
+    public function asDatabaseRecord(): array
     {
         return [
             'username' => $this->username,
-            'lastModified' => $this->lastModified
+            'age' => $this->age
         ];
     }
 
-    public static function fromArray(array $data): self
+    public static function fromDatabaseRecord(array $record): self
     {
-        return new self($data['username'], $data['lastModified']);
+        return new self($record['username'], $record['age']);
     }
 }
