@@ -1,7 +1,7 @@
 parameters:
     level: max
     paths:
-         - src/Module0
+        - src/Module0
 #        - src/Module1
 #        - src/Module2
 #        - src/Module3
