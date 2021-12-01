@@ -1,0 +1,33 @@
+name: Code Analysis
+
+on:
+    pull_request: null
+    push:
+        branches:
+            - main
+
+jobs:
+    code_analysis:
+        strategy:
+            fail-fast: false
+            matrix:
+                actions:
+                    -
+                        name: "PHPStan"
+                        run: bin/php vendor/bin/phpstan analyze
+
+                    -
+                        name: "PHPUnit"
+                        run: bin/php vendor/bin/phpunit
+
+        name: ${{ matrix.actions.name }}
+        runs-on: ubuntu-latest
+
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.0
+                    coverage: none
+            -   uses: "ramsey/composer-install@v1"
+            -   run: ${{ matrix.actions.run }}
