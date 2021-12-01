@@ -5,18 +5,16 @@ namespace App\Module1;
 
 class AuthorizationToken
 {
-    private string $clientId;
     private string $token;
 
-    public function __construct(string $clientId, string $token)
+    public function __construct(string $token)
     {
-        $this->clientId = $clientId;
         $this->token = $token;
     }
 
     public function isAuthorized(): bool
     {
-        return !is_null($this->clientId);
+        return true;
     }
 
     public function token(): string

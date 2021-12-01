@@ -10,16 +10,21 @@ class Client
     /**
      * @var string
      */
-    private $apiKey;
+    private $clientSecret;
 
-    public function __construct(string $clientId, ?string $apiKey)
+    public function __construct(int $clientId, string $clientSecret)
     {
         $this->clientId = $clientId;
-        $this->apiKey = $apiKey;
+        $this->clientSecret = $clientSecret;
     }
 
-    public function apiKey(): string
+    public function clientId(): int
     {
-        return $this->apiKey;
+        return $this->clientId;
+    }
+
+    public function clientSecret(): string
+    {
+        return $this->clientSecret;
     }
 }
