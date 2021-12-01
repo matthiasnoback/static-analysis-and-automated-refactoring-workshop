@@ -5,6 +5,8 @@ namespace App\Module2;
 
 final class User
 {
+    use Mapping;
+
     private string $username;
     private int $age;
 
@@ -14,6 +16,9 @@ final class User
         $this->age = $age;
     }
 
+    /**
+     * @return array<string,mixed>
+     */
     public function asDatabaseRecord(): array
     {
         return [
@@ -22,8 +27,14 @@ final class User
         ];
     }
 
+    /**
+     * @param array<string,string|null> $record
+     */
     public static function fromDatabaseRecord(array $record): self
     {
-        return new self($record['username'], $record['age']);
+        return new self(
+            self::getString($record, 'username'),
+            self::getInt($record, 'age')
+        );
     }
 }
