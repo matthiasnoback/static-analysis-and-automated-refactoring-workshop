@@ -6,7 +6,7 @@ parameters:
         - src/Module2
         - src/Module3
         - src/Module4
-#        - src/Module5
+        - src/Module5
 #        - src/Module6
 #        - src/Module7
 #        - src/Module8

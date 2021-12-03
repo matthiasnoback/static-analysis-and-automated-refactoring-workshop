@@ -7,17 +7,18 @@ use ArrayIterator;
 use IteratorAggregate;
 
 /**
- * @implements IteratorAggregate<int,mixed>
+ * @template TValue
+ * @implements IteratorAggregate<int,TValue>
  */
 final class Collection implements IteratorAggregate
 {
     /**
-     * @var array<mixed>
+     * @var array<TValue>
      */
     private array $values;
 
     /**
-     * @param array<mixed> $values
+     * @param array<TValue> $values
      */
     public function __construct(array $values)
     {
@@ -25,7 +26,7 @@ final class Collection implements IteratorAggregate
     }
 
     /**
-     * @param mixed $value
+     * @param TValue $value
      */
     public function add($value): void
     {
@@ -33,7 +34,7 @@ final class Collection implements IteratorAggregate
     }
 
     /**
-     * @return mixed
+     * @return TValue
      */
     public function first()
     {
@@ -41,7 +42,7 @@ final class Collection implements IteratorAggregate
     }
 
     /**
-     * @return ArrayIterator<int,mixed>
+     * @return ArrayIterator<int,TValue>
      */
     public function getIterator(): ArrayIterator
     {
