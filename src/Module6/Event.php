@@ -11,4 +11,9 @@ final class Event
     {
         $this->happenedAt = $happenedAt;
     }
+
+    public function happenedAt(): \DateTimeImmutable
+    {
+        return $this->happenedAt;
+    }
 }
