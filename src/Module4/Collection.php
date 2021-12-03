@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace App\Module4;
 
-use Exception;
-use Traversable;
 use ArrayIterator;
 use IteratorAggregate;
 
