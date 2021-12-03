@@ -11,8 +11,8 @@ $counter = tap(Counter::create(), function (Counter $counter): void {
 
 $counter = $counter->increment();
 
-echo tap($counter, function (Counter $counter): Counter {
+echo tap($counter, function (Counter $counter): void {
     echo $counter->getValue();
 
-    return $counter->increment();
+    $counter->increment();
 })->getValue();
