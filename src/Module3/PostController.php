@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module3;
@@ -18,9 +19,7 @@ final class PostController
         $requestBody = file_get_contents('php://input');
         Assertion::string($requestBody);
 
-        $post = Post::fromArray(
-            $this->jsonEncoder->decode($requestBody)
-        );
+        $post = Post::fromArray($this->jsonEncoder->decode($requestBody));
 
         $this->postRepository->save($post);
 

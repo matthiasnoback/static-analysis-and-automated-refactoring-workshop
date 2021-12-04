@@ -1,18 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module5;
 
 use Exception;
-use DateTimeImmutable;
 
 final class FlattenedException
 {
     /**
      * @param Collection<Exception> $exceptions
      */
-    public function __construct(private Collection $exceptions)
-    {
+    public function __construct(
+        private Collection $exceptions
+    ) {
     }
 
     public function add(Exception $exception): void

@@ -1,12 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module1;
 
 final class AuthorizationService
 {
-    public function __construct(private ClientRepository $clientRepository, private TokenGenerator $tokenGenerator)
-    {
+    public function __construct(
+        private ClientRepository $clientRepository,
+        private TokenGenerator $tokenGenerator
+    ) {
     }
 
     public function authorize(string $clientId, string $clientSecret): AuthorizationToken

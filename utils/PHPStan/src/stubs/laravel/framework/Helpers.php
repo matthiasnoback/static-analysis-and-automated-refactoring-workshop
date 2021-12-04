@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -6,5 +7,6 @@ declare(strict_types=1);
  * @param TValue $value
  * @param callable(TValue): void $callback
  */
-function tap($value, $callback): void {
+function tap($value, $callback): void
+{
 }

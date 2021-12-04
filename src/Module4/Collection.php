@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module4;
@@ -14,8 +15,9 @@ final class Collection implements IteratorAggregate
     /**
      * @param array<mixed> $values
      */
-    public function __construct(private array $values)
-    {
+    public function __construct(
+        private array $values
+    ) {
     }
 
     /**

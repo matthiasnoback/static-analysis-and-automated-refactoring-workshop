@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Utils\PHPStan;
@@ -26,9 +27,7 @@ final class DynamicInstantiationRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         if ($node->class instanceof Variable) {
-            return [
-                RuleErrorBuilder::message('Dynamic class instantiation is not allowed')->build()
-            ];
+            return [RuleErrorBuilder::message('Dynamic class instantiation is not allowed')->build()];
         }
 
         return [];

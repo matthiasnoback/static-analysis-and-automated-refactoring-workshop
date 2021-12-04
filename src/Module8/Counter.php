@@ -1,12 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module8;
 
 final class Counter
 {
-    private function __construct(private int $counter)
-    {
+    private function __construct(
+        private int $counter
+    ) {
     }
 
     public static function create(): self

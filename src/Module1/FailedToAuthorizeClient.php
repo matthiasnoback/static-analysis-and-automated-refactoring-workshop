@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module1;
 
 use RuntimeException;
+
 final class FailedToAuthorizeClient extends RuntimeException
 {
     public static function becauseClientSecretIsInvalid(string $clientId): self

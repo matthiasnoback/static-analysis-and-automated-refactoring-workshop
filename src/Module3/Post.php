@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module3;
@@ -11,6 +12,7 @@ final class Post
         private string $title
     ) {
     }
+
     /**
      * @param array<mixed> $data
      */
@@ -26,6 +28,8 @@ final class Post
      */
     public function toArray(): array
     {
-        return ['title' => $this->title];
+        return [
+            'title' => $this->title,
+        ];
     }
 }
