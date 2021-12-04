@@ -5,17 +5,8 @@ namespace App\Module1;
 
 final class Client
 {
-    private int $clientId;
-
-    /**
-     * @var string
-     */
-    private $clientSecret;
-
-    public function __construct(int $clientId, string $clientSecret)
+    public function __construct(private int $clientId, private string $clientSecret)
     {
-        $this->clientId = $clientId;
-        $this->clientSecret = $clientSecret;
     }
 
     public function clientId(): int

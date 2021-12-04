@@ -6,11 +6,8 @@ namespace App\Module6;
 use DateTimeImmutable;
 final class Event
 {
-    private DateTimeImmutable $happenedAt;
-
-    public function __construct(DateTimeImmutable $happenedAt)
+    public function __construct(private DateTimeImmutable $happenedAt)
     {
-        $this->happenedAt = $happenedAt;
     }
 
     public function happenedAt(): DateTimeImmutable

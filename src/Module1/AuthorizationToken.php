@@ -5,11 +5,8 @@ namespace App\Module1;
 
 final class AuthorizationToken
 {
-    private string $token;
-
-    public function __construct(string $token)
+    public function __construct(private string $token)
     {
-        $this->token = $token;
     }
 
     public function isAuthorized(): bool

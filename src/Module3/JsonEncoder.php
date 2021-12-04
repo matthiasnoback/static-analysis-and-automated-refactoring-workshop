@@ -12,7 +12,7 @@ final class JsonEncoder
      */
     public function encode(array $values): string
     {
-        $encoded = json_encode($values);
+        $encoded = json_encode($values, JSON_THROW_ON_ERROR);
         Assertion::string($encoded);
 
         return $encoded;
@@ -23,7 +23,7 @@ final class JsonEncoder
      */
     public function decode(string $encoded): array
     {
-        $decoded = json_decode($encoded);
+        $decoded = json_decode($encoded, null, 512, JSON_THROW_ON_ERROR);
         Assertion::isArray($decoded);
 
         return $decoded;
