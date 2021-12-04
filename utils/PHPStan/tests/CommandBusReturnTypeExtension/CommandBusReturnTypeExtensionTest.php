@@ -25,8 +25,6 @@ final class CommandBusReturnTypeExtensionTest extends TypeInferenceTestCase
         mixed ...$args
     ): void
     {
-        $this->markTestIncomplete('Enable this test when working on Module10');
-
         $this->assertFileAsserts($assertType, $file, ...$args);
     }
 

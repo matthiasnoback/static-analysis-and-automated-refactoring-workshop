@@ -16,7 +16,7 @@ use PHPStan\Type\Type;
 
 final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExtension
 {
-    public function __construct()
+    public function __construct(private ReflectionProvider $reflectionProvider)
     {
     }
 
@@ -37,7 +37,18 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
         MethodCall $methodCall,
         Scope $scope
     ): Type {
-        // TODO: return the return type of [CommandClass]Handler::handle() instead
+        $firstArgument = $methodCall->getArgs()[0];
+        $typeOfFirstArgument = $scope->getType($firstArgument->value);
+        if ($typeOfFirstArgument instanceof ObjectType) {
+            // Assuming it's a command, now look for the handler
+            $handlerClass = $this->reflectionProvider->getClass($typeOfFirstArgument->getClassName() . 'Handler');
+            $handlerMethodReflection = $handlerClass->getMethod('handle', $scope);
+            return ParametersAcceptorSelector::selectFromArgs(
+                $scope,
+                $methodCall->getArgs(),
+                $handlerMethodReflection->getVariants()
+            )->getReturnType();
+        }
 
         // By default, return the return type of CommandBus::handle()
         return ParametersAcceptorSelector::selectFromArgs(
