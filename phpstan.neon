@@ -10,18 +10,26 @@ parameters:
         - src/Module6
         - src/Module7
         - src/Module8
-#        - src/Module9
+        - src/Module9
+        - utils
 #        - src/Module10
-
+    excludePaths:
+        - utils/PHPStan/tests/*/Fixtures/*
     ignoreErrors:
         -
             message: '#expects DateTimeImmutable, DateTimeImmutable\|false given#'
             path: src/Module6/okay.php
             count: 1
+        -
+            message: '#Unreachable statement - code above always terminates#'
+            path: */tests/*
 
     reportUnmatchedIgnoredErrors: false
     stubFiles:
         - utils/PHPStan/src/stubs/laravel/framework/Helpers.php
+
+rules:
+    - Utils\PHPStan\DynamicInstantiationRule
 
 includes:
     - phpstan-baseline.neon
