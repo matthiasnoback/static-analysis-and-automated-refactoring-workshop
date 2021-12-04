@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-class AuthorizationService
+final class AuthorizationService
 {
     private TokenGenerator $tokenGenerator;
     private ClientRepository $clientRepository;
