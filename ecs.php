@@ -21,7 +21,7 @@ return static function (
     $parameters->set(
         Option::SKIP,
         [
-            'Fixtures'
+            __DIR__ . '/utils/*/Fixtures/*'
         ]
     );
 
