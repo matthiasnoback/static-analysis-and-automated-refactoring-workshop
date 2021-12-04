@@ -1,3 +1,3 @@
 <?php
 
-new \DateTimeImmutable();
+new DateTimeImmutable();

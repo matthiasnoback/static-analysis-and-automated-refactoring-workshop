@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Module2;
 
+use UnexpectedValueException;
 trait Mapping
 {
     /**
@@ -12,7 +13,7 @@ trait Mapping
     {
         $value = $map[$key];
         if (!is_string($value)) {
-            throw new \UnexpectedValueException();
+            throw new UnexpectedValueException();
         }
         return $value;
     }
@@ -24,7 +25,7 @@ trait Mapping
     {
         $value = $map[$key];
         if (!is_int($value)) {
-            throw new \UnexpectedValueException();
+            throw new UnexpectedValueException();
         }
         return $value;
     }
