@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-final class FailedToAuthorizeClient
+class FailedToAuthorizeClient
 {
     public static function becauseClientSecretIsInvalid(string $clientId): self
     {
