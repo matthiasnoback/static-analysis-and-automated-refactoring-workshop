@@ -1,4 +1,3 @@
 <?php
 
-$class = 'DateTimeImmutable';
-new $class();
+new DateTimeImmutable();

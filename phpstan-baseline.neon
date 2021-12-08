@@ -16,12 +16,7 @@ parameters:
 			path: src/Module7/bad_file.php
 
 		-
-			message: "#^Instantiated class NonExistingClass not found\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: src/Module7/bad_file.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, NonExistingClass given\\.$#"
-			count: 1
-			path: src/Module7/bad_file.php
+			path: utils/PHPStan/tests/CommandBusReturnTypeExtension/CommandBusReturnTypeExtensionTest.php
 
