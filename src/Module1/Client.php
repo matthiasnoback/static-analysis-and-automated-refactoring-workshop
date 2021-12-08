@@ -6,11 +6,8 @@ namespace App\Module1;
 
 final class Client
 {
-    private string $apiKey;
-
-    public function __construct(string $apiKey)
+    public function __construct(private string $apiKey)
     {
-        $this->apiKey = $apiKey;
     }
 
     public function apiKey(): string

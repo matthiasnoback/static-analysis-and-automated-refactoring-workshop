@@ -18,13 +18,13 @@ final class PostController
         $contents = file_get_contents('php://input');
         Assertion::string($contents);
 
-        $data = json_decode($contents);
+        $data = json_decode($contents, null, 512, JSON_THROW_ON_ERROR);
         Assertion::isArray($data);
         $post = Post::fromArray($data);
 
         $this->postRepository->save($post);
 
-        $encoded = json_encode($post->toArray());
+        $encoded = json_encode($post->toArray(), JSON_THROW_ON_ERROR);
         Assertion::string($encoded);
 
         return $encoded;

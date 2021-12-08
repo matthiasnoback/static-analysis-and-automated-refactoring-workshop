@@ -6,11 +6,8 @@ namespace App\Module10;
 
 final class Workshop
 {
-    private string $title;
-
-    public function __construct(string $title)
+    public function __construct(private string $title)
     {
-        $this->title = $title;
     }
 
     public function getTitle(): string

@@ -8,14 +8,8 @@ final class User
 {
     use Mapping;
 
-    private string $username;
-
-    private int $age;
-
-    public function __construct(string $username, int $age)
+    public function __construct(private string $username, private int $age)
     {
-        $this->username = $username;
-        $this->age = $age;
     }
 
     /**

@@ -9,16 +9,10 @@ use Exception;
 final class FlattenedException
 {
     /**
-     * @var Collection<Exception>
-     */
-    private Collection $exceptions;
-
-    /**
      * @param Collection<Exception> $exceptions
      */
-    public function __construct(Collection $exceptions)
+    public function __construct(private Collection $exceptions)
     {
-        $this->exceptions = $exceptions;
     }
 
     public function add(Exception $exception): void

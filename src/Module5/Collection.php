@@ -14,16 +14,10 @@ use IteratorAggregate;
 final class Collection implements IteratorAggregate
 {
     /**
-     * @var array<T>
-     */
-    private array $values;
-
-    /**
      * @param array<T> $values
      */
-    public function __construct(array $values)
+    public function __construct(private array $values)
     {
-        $this->values = $values;
     }
 
     /**
