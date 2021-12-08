@@ -1,11 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Utils\PHPStan;
 
-use PhpParser\Node\Expr\Variable;
 use PhpParser\Node;
 use PhpParser\Node\Expr\New_;
+use PhpParser\Node\Expr\Variable;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
@@ -28,9 +29,7 @@ final class DynamicInstantiationRule implements Rule
     {
         // Return errors for this node. For now: nothing, just print the type of the node
         if ($node->class instanceof Variable) {
-            return [
-                RuleErrorBuilder::message('Dynamic class instantiation is not allowed')->build()
-            ];
+            return [RuleErrorBuilder::message('Dynamic class instantiation is not allowed')->build()];
         }
 
         return [];

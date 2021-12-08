@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Module2;
 
 use InvalidArgumentException;
+
 trait Mapping
 {
     /**
@@ -10,12 +13,12 @@ trait Mapping
      */
     private static function getString(array $data, string $key): string
     {
-        if (!isset($data[$key])) {
+        if (! isset($data[$key])) {
             throw new InvalidArgumentException();
         }
 
         $value = $data[$key];
-        if (!is_string($value)) {
+        if (! is_string($value)) {
             throw new InvalidArgumentException();
         }
 
@@ -27,7 +30,7 @@ trait Mapping
      */
     private static function getInt(array $data, string $key): int
     {
-        if (!isset($data[$key])) {
+        if (! isset($data[$key])) {
             throw new InvalidArgumentException();
         }
 

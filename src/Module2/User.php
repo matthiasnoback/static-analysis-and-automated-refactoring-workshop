@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module2;
@@ -6,7 +7,9 @@ namespace App\Module2;
 final class User
 {
     use Mapping;
+
     private string $username;
+
     private int $age;
 
     public function __construct(string $username, int $age)
@@ -22,7 +25,7 @@ final class User
     {
         return [
             'username' => $this->username,
-            'age' => $this->age
+            'age' => $this->age,
         ];
     }
 
