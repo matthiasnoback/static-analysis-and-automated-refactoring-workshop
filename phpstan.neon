@@ -8,7 +8,7 @@ parameters:
         - src/Module4
         - src/Module5
         - src/Module6
-#        - src/Module7
+        - src/Module7
 #        - src/Module8
 #        - src/Module9
 #        - src/Module10
@@ -17,3 +17,7 @@ parameters:
             message: '#expects DateTimeImmutable, DateTimeImmutable\|false given#'
             path: src/Module6/okay.php
             count: 1
+    reportUnmatchedIgnoredErrors: false
+
+includes:
+    - phpstan-baseline.neon
