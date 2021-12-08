@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-class AuthorizationToken
+final class AuthorizationToken
 {
     private string $token;
 
