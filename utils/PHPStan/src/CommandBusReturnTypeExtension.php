@@ -5,6 +5,7 @@ namespace Utils\PHPStan;
 
 use App\Module10\CommandBus;
 use Assert\Assertion;
+use PhpParser\Node\Arg;
 use PhpParser\Node\Expr\MethodCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\MethodReflection;
@@ -16,7 +17,7 @@ use PHPStan\Type\Type;
 
 final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExtension
 {
-    public function __construct()
+    public function __construct(private ReflectionProvider $reflectionProvider)
     {
     }
 
@@ -37,7 +38,21 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
         MethodCall $methodCall,
         Scope $scope
     ): Type {
-        // TODO: return the return type of [CommandClass]Handler::handle() instead
+        $firstArgument = $methodCall->getArgs()[0];
+        if ($firstArgument instanceof Arg) {
+
+            $type = $scope->getType($firstArgument->value);
+            if ($type instanceof ObjectType) {
+                $handlerClass = $this->reflectionProvider->getClass($type->getClassName() . 'Handler');
+                $handleMethod = $handlerClass->getMethod('handle', $scope);
+
+                return ParametersAcceptorSelector::selectFromArgs(
+                    $scope,
+                    $methodCall->getArgs(),
+                    $handleMethod->getVariants()
+                )->getReturnType();
+            }
+        }
 
         // By default, return the return type of CommandBus::handle()
         return ParametersAcceptorSelector::selectFromArgs(

@@ -12,7 +12,7 @@ parameters:
         - src/Module8
         - src/Module9
         - utils
-#        - src/Module10
+        - src/Module10
     excludePaths:
         - utils/PHPStan/tests/*/Fixtures/*
     ignoreErrors:
@@ -26,6 +26,7 @@ parameters:
 
 includes:
     - phpstan-baseline.neon
+    - utils/PHPStan/src/command-bus-extension.neon
 
 rules:
     - Utils\PHPStan\DynamicInstantiationRule

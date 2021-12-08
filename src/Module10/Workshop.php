@@ -12,7 +12,7 @@ final class Workshop
         $this->title = $title;
     }
 
-    public function title(): string
+    public function getTitle(): string
     {
         return $this->title;
     }
