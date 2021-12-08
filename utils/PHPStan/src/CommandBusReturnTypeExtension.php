@@ -38,27 +38,41 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
         MethodCall $methodCall,
         Scope $scope
     ): Type {
-        $firstArgument = $methodCall->getArgs()[0];
-        if ($firstArgument instanceof Arg) {
-
-            $type = $scope->getType($firstArgument->value);
-            if ($type instanceof ObjectType) {
-                $handlerClass = $this->reflectionProvider->getClass($type->getClassName() . 'Handler');
-                $handleMethod = $handlerClass->getMethod('handle', $scope);
-
-                return ParametersAcceptorSelector::selectFromArgs(
-                    $scope,
-                    $methodCall->getArgs(),
-                    $handleMethod->getVariants()
-                )->getReturnType();
-            }
-        }
-
-        // By default, return the return type of CommandBus::handle()
-        return ParametersAcceptorSelector::selectFromArgs(
+        $defaultReturnType = ParametersAcceptorSelector::selectFromArgs(
             $scope,
             $methodCall->getArgs(),
             $methodReflection->getVariants()
+        )->getReturnType();
+
+        if (!isset($methodCall->getArgs()[0])) {
+            return $defaultReturnType;
+        }
+
+        $firstArgument = $methodCall->getArgs()[0];
+        if (!$firstArgument instanceof Arg) {
+            return $defaultReturnType;
+        }
+
+        $type = $scope->getType($firstArgument->value);
+        if (!$type instanceof ObjectType) {
+            return $defaultReturnType;
+        }
+
+        $handlerClassNameGuess = $type->getClassName() . 'Handler';
+        if (!$this->reflectionProvider->hasClass($handlerClassNameGuess)) {
+            return $defaultReturnType;
+        }
+
+        $handlerClass = $this->reflectionProvider->getClass($handlerClassNameGuess);
+
+        if (!$handlerClass->hasMethod('handle')) {
+            return $defaultReturnType;
+        }
+
+        return ParametersAcceptorSelector::selectFromArgs(
+            $scope,
+            $methodCall->getArgs(),
+            $handlerClass->getMethod('handle', $scope)->getVariants()
         )->getReturnType();
     }
 }

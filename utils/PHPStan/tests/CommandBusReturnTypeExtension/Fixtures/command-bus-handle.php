@@ -11,3 +11,6 @@ use function PHPStan\Testing\assertType;
 
 assertType(Workshop::class, $commandBus->handle(new PlanWorkshop('Title')));
 assertType('void', $commandBus->handle(new CancelWorkshop()));
+assertType('mixed', $commandBus->handle());
+assertType('mixed', $commandBus->handle(new DateTimeImmutable()));
+assertType('mixed', $commandBus->handle(...$args));
