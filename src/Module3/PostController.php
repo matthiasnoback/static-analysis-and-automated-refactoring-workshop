@@ -14,11 +14,12 @@ final class PostController
 
     public function create(): string
     {
-        $post = Post::fromArray(
-            json_decode(
-                file_get_contents('php://input')
-            )
-        );
+        $contents = file_get_contents('php://input');
+        Assertion::string($contents);
+
+        $data = json_decode($contents);
+        Assertion::isArray($data);
+        $post = Post::fromArray($data);
 
         $this->postRepository->save($post);
 
