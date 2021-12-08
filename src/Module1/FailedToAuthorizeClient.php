@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-class FailedToAuthorizeClient extends \RuntimeException
+use RuntimeException;
+class FailedToAuthorizeClient extends RuntimeException
 {
     public static function becauseClientSecretIsInvalid(string $clientId): self
     {

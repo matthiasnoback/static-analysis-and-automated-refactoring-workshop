@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Utils\PHPStan;
 
+use PhpParser\Node\Expr\Variable;
 use PhpParser\Node;
 use PhpParser\Node\Expr\New_;
 use PHPStan\Analyser\Scope;
@@ -26,7 +27,7 @@ final class DynamicInstantiationRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         // Return errors for this node. For now: nothing, just print the type of the node
-        if ($node->class instanceof \PhpParser\Node\Expr\Variable) {
+        if ($node->class instanceof Variable) {
             return [
                 RuleErrorBuilder::message('Dynamic class instantiation is not allowed')->build()
             ];

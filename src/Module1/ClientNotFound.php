@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-final class ClientNotFound extends \RuntimeException
+use RuntimeException;
+final class ClientNotFound extends RuntimeException
 {
     public static function withId(string $clientId): self
     {

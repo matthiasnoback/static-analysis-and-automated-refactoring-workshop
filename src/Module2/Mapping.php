@@ -2,6 +2,7 @@
 
 namespace App\Module2;
 
+use InvalidArgumentException;
 trait Mapping
 {
     /**
@@ -10,12 +11,12 @@ trait Mapping
     private static function getString(array $data, string $key): string
     {
         if (!isset($data[$key])) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
 
         $value = $data[$key];
         if (!is_string($value)) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
 
         return $value;
@@ -27,7 +28,7 @@ trait Mapping
     private static function getInt(array $data, string $key): int
     {
         if (!isset($data[$key])) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
 
         $value = $data[$key];
@@ -39,6 +40,6 @@ trait Mapping
             return $value;
         }
 
-        throw new \InvalidArgumentException();
+        throw new InvalidArgumentException();
     }
 }
