@@ -13,6 +13,10 @@ final class CommandBus
             return (new PlanWorkshopHandler())->handle($command);
         }
 
+        if ($command instanceof CancelWorkshop) {
+            (new CancelWorkshopHandler())->handle($command);
+        }
+
         throw new LogicException('Could not find handler for command');
     }
 }
