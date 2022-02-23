@@ -8,12 +8,17 @@ use Exception;
 
 final class FlattenedException
 {
+    /**
+     * @var Collection<\Exception>
+     */
     private Collection $exceptions;
 
+    /**
+     * @param Collection<\Exception> $exceptions
+     */
     public function __construct(Collection $exceptions)
     {
         $this->exceptions = $exceptions;
-        $this->exceptions->add(new DateTimeImmutable());
     }
 
     public function add(Exception $exception): void
@@ -26,7 +31,7 @@ final class FlattenedException
         $messages = [];
 
         foreach ($this->exceptions as $exception) {
-            $messages[] = $exception->getMessage() . $exception->getTimestamp();
+            $messages[] = $exception->getMessage();
         }
 
         return implode("\n", $messages);
