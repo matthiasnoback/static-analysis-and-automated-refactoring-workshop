@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "222c722ac42e690bb8fc3f55ea7f370d",
+    "content-hash": "c14528944d7e6f7ae25b800cefbf1127",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1453,6 +1453,51 @@
             "time": "2021-09-10T09:02:12+00:00"
         },
         {
+            "name": "phpstan/extension-installer",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/extension-installer.git",
+                "reference": "66c7adc9dfa38b6b5838a9fb728b68a7d8348051"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/extension-installer/zipball/66c7adc9dfa38b6b5838a9fb728b68a7d8348051",
+                "reference": "66c7adc9dfa38b6b5838a9fb728b68a7d8348051",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "php": "^7.1 || ^8.0",
+                "phpstan/phpstan": ">=0.11.6"
+            },
+            "require-dev": {
+                "composer/composer": "^1.8",
+                "phing/phing": "^2.16.3",
+                "php-parallel-lint/php-parallel-lint": "^1.2.0",
+                "phpstan/phpstan-strict-rules": "^0.11 || ^0.12"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PHPStan\\ExtensionInstaller\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\ExtensionInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Composer plugin for automatic installation of PHPStan extensions",
+            "support": {
+                "issues": "https://github.com/phpstan/extension-installer/issues",
+                "source": "https://github.com/phpstan/extension-installer/tree/1.1.0"
+            },
+            "time": "2020-12-13T13:06:13+00:00"
+        },
+        {
             "name": "phpstan/phpstan",
             "version": "1.2.0",
             "source": {
@@ -1515,6 +1560,59 @@
                 }
             ],
             "time": "2021-11-18T14:09:01+00:00"
+        },
+        {
+            "name": "phpstan/phpstan-beberlei-assert",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan-beberlei-assert.git",
+                "reference": "522c761589747e49b0ccb54683a91826b1a95b34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan-beberlei-assert/zipball/522c761589747e49b0ccb54683a91826b1a95b34",
+                "reference": "522c761589747e49b0ccb54683a91826b1a95b34",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0",
+                "phpstan/phpstan": "^1.0"
+            },
+            "require-dev": {
+                "beberlei/assert": "^3.3.0",
+                "nikic/php-parser": "^4.13.0",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "phpstan": {
+                    "includes": [
+                        "extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan beberlei/assert extension",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan-beberlei-assert/issues",
+                "source": "https://github.com/phpstan/phpstan-beberlei-assert/tree/1.0.1"
+            },
+            "time": "2022-02-23T08:43:53+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

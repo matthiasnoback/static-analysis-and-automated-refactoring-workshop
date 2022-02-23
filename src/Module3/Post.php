@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Module3;
 
+use Assert\Assertion;
+
 final class Post
 {
     private function __construct(
@@ -14,6 +16,9 @@ final class Post
      */
     public static function fromArray(array $data): self
     {
+        Assertion::keyExists($data, 'title'); // PHP notice: key 'title' does not exist
+        Assertion::string($data['title']); // PHP type conversion error/strict type error
+
         return new self($data['title']);
     }
 
