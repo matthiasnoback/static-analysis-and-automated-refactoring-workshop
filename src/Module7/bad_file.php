@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use NonExistingClass;
+use App\Module7\ExistingClass;
 
 function isBadFunction(array $whatIsInsideWeDoNotKnow, $thisHasNoType)
 {
@@ -10,7 +10,7 @@ function isBadFunction(array $whatIsInsideWeDoNotKnow, $thisHasNoType)
         return true;
     }
 
-    $object = new NonExistingClass();
+    $object = new ExistingClass();
     if (count($object)) {
         return false;
     }
