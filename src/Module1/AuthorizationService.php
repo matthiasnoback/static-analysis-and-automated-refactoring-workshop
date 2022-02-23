@@ -5,7 +5,8 @@ namespace App\Module1;
 
 class AuthorizationService
 {
-    private RandomTokenGenerator $tokenGenerator;
+    private TokenGenerator $tokenGenerator;
+    private ClientRepository $clientRepository;
 
     public function __construct(ClientRepository $clientRepository, TokenGenerator $tokenGenerator)
     {
@@ -15,7 +16,15 @@ class AuthorizationService
 
     public function authorize(string $clientId, string $clientSecret): AuthorizationToken
     {
+        // $client = Client | null
         $client = $this->clientRepository->findClientById($clientId);
+
+        if ($client === null) {
+            // $client = null
+            throw new FailedToAuthorizeClient('Client not found');
+        }
+
+        // $client is Client
 
         if ($client->clientSecret() !== $clientSecret) {
             throw FailedToAuthorizeClient::becauseClientSecretIsInvalid($clientId);
@@ -23,6 +32,6 @@ class AuthorizationService
 
         $token = $this->tokenGenerator->generate();
 
-        return $token;
+        return new AuthorizationToken($clientId, $token);
     }
 }

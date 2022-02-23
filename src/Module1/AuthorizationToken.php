@@ -16,7 +16,12 @@ class AuthorizationToken
 
     public function isAuthorized(): bool
     {
-        return !is_null($this->clientId);
+        return true;
+    }
+
+    public function clientId(): string
+    {
+        return $this->clientId;
     }
 
     public function token(): string

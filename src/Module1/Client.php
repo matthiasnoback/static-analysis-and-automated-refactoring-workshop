@@ -5,17 +5,24 @@ namespace App\Module1;
 
 class Client
 {
-    private int $clientId;
+    private string $clientId;
 
-    /**
-     * @var string
-     */
-    private $apiKey;
+    private string $apiKey;
 
-    public function __construct(string $clientId, ?string $apiKey)
+    public function __construct(string $clientId, string $apiKey)
     {
         $this->clientId = $clientId;
         $this->apiKey = $apiKey;
+    }
+
+    public function clientId(): string
+    {
+        return $this->clientId;
+    }
+
+    public function clientSecret(): string
+    {
+        return $this->apiKey();
     }
 
     public function apiKey(): string
