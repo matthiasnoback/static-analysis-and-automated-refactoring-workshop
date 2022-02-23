@@ -24,5 +24,10 @@
             "Utils\\PHPStan\\": "utils/PHPStan/src",
             "Utils\\PHPStan\\Tests\\": "utils/PHPStan/tests"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
     }
 }
