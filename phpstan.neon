@@ -10,8 +10,11 @@ parameters:
         - src/Module6
         - src/Module7
         - src/Module8
-#        - src/Module9
+        - src/Module9
+        - utils
 #        - src/Module10
+    excludePaths:
+        - */Fixtures/*
 
     ignoreErrors:
         -
@@ -24,3 +27,7 @@ parameters:
 
 includes:
     - phpstan-baseline.neon
+
+rules:
+    - \Utils\PHPStan\DynamicInstantiationRule
+
