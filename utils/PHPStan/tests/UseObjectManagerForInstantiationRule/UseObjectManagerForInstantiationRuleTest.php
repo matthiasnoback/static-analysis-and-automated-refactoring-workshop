@@ -7,6 +7,9 @@ use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 use Utils\PHPStan\UseObjectManagerForInstantiationRule;
 
+/**
+ * @extends RuleTestCase<UseObjectManagerForInstantiationRule>
+ */
 final class UseObjectManagerForInstantiationRuleTest extends RuleTestCase
 {
     protected function getRule(): Rule

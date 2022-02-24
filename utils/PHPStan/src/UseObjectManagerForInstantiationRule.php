@@ -10,8 +10,10 @@ use PhpParser\Node\Name;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/**
+ * @implements Rule<StaticCall>
+ */
 final class UseObjectManagerForInstantiationRule implements Rule
 {
     public function getNodeType(): string
@@ -28,7 +30,7 @@ final class UseObjectManagerForInstantiationRule implements Rule
             return [];
         }
 
-        if ($node->class->toString() !== GeneralUtility::class) {
+        if ($node->class->toString() !== 'TYPO3\CMS\Core\Utility\GeneralUtility') {
             return [];
         }
 

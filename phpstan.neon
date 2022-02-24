@@ -31,3 +31,4 @@ includes:
 
 rules:
     - \Utils\PHPStan\DynamicInstantiationRule
+    - \Utils\PHPStan\UseObjectManagerForInstantiationRule
