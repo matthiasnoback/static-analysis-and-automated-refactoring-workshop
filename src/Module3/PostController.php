@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module3;
 
 use Assert\Assertion;
 use Assert\AssertionFailedException;
+use InvalidArgumentException;
 
 final class PostController
 {
@@ -19,18 +21,13 @@ final class PostController
 
         // $requestBody is a string or false
         if ($requestBody === false) {
-            throw new \InvalidArgumentException('Expected a request body');
+            throw new InvalidArgumentException('Expected a request body');
         }
         // $requestBody is a string
 
-        $decodedData = json_decode(
-            $requestBody,
-            true,
-            512,
-            JSON_THROW_ON_ERROR
-        );
-        if (!is_array($decodedData)) {
-            throw new \InvalidArgumentException('Request body should be JSON-encoded array');
+        $decodedData = json_decode($requestBody, true, 512, JSON_THROW_ON_ERROR);
+        if (! is_array($decodedData)) {
+            throw new InvalidArgumentException('Request body should be JSON-encoded array');
         }
         // $decodedData is array<mixed>
 

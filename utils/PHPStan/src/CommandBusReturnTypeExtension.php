@@ -1,10 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Utils\PHPStan;
 
 use App\Module10\CommandBus;
-use Assert\Assertion;
 use PhpParser\Node\Expr\MethodCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\MethodReflection;
@@ -18,9 +18,7 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
 {
     private ReflectionProvider $reflectionProvider;
 
-    public function __construct(
-        ReflectionProvider $reflectionProvider
-    )
+    public function __construct(ReflectionProvider $reflectionProvider)
     {
         $this->reflectionProvider = $reflectionProvider;
     }
@@ -48,26 +46,26 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
             $methodReflection->getVariants()
         )->getReturnType();
 
-        if (!isset($methodCall->getArgs()[0])) {
+        if (! isset($methodCall->getArgs()[0])) {
             // There's no first argument
             return $defaultType;
         }
 
         $firstArgument = $methodCall->getArgs()[0];
         $type = $scope->getType($firstArgument->value);
-        if (!$type instanceof ObjectType) {
+        if (! $type instanceof ObjectType) {
             // First argument is not an object
             return $defaultType;
         }
 
         $handlerClass = $type->getClassName() . 'Handler';
-        if (!$this->reflectionProvider->hasClass($handlerClass)) {
+        if (! $this->reflectionProvider->hasClass($handlerClass)) {
             // There is no handler class
             return $defaultType;
         }
 
         $handlerReflection = $this->reflectionProvider->getClass($handlerClass);
-        if (!$handlerReflection->hasMethod('handle')) {
+        if (! $handlerReflection->hasMethod('handle')) {
             // The handler has no handle method
             return $defaultType;
         }

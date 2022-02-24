@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Utils\PHPStan\Tests\CommandBusReturnTypeExtension;
@@ -19,11 +20,7 @@ final class CommandBusReturnTypeExtensionTest extends TypeInferenceTestCase
     /**
      * @dataProvider dataFileAsserts
      */
-    public function testFileAsserts(
-        string $assertType,
-        string $file,
-        mixed ...$args
-    ): void
+    public function testFileAsserts(string $assertType, string $file, mixed ...$args): void
     {
         $this->assertFileAsserts($assertType, $file, ...$args);
     }

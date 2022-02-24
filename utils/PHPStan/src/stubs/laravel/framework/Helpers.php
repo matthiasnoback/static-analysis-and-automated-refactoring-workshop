@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -7,5 +8,6 @@ declare(strict_types=1);
  * @return T
  * @template T
  */
-function tap($value, $callback) {
+function tap($value, $callback)
+{
 }

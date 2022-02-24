@@ -1,9 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module1;
 
-class FailedToAuthorizeClient extends \Exception
+use Exception;
+
+class FailedToAuthorizeClient extends Exception
 {
     public static function becauseClientSecretIsInvalid(string $clientId): self
     {

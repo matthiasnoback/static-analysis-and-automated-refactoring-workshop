@@ -1,11 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module2;
 
+use InvalidArgumentException;
+
 final class User
 {
     private string $username;
+
     private int $age;
 
     public function __construct(string $username, int $age)
@@ -21,7 +25,7 @@ final class User
     {
         return [
             'username' => $this->username,
-            'age' => $this->age
+            'age' => $this->age,
         ];
     }
 
@@ -31,20 +35,17 @@ final class User
     public static function fromDatabaseRecord(array $record): self
     {
         // $record['username'] could be null or string
-        if (!isset($record['username'])) {
+        if (! isset($record['username'])) {
             // $record['username'] is null or key doesn't exist
-            throw new \InvalidArgumentException('undefined username');
+            throw new InvalidArgumentException('undefined username');
         }
 
         // $record['username'] is a string
 
-        if (!isset($record['age'])) {
-            throw new \InvalidArgumentException('undefined age');
+        if (! isset($record['age'])) {
+            throw new InvalidArgumentException('undefined age');
         }
 
-        return new self(
-            $record['username'],
-            (int) $record['age']
-        );
+        return new self($record['username'], (int) $record['age']);
     }
 }
