@@ -15,8 +15,3 @@ parameters:
 			count: 1
 			path: src/Module7/bad_file.php
 
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: utils/PHPStan/tests/CommandBusReturnTypeExtension/CommandBusReturnTypeExtensionTest.php
-

@@ -16,8 +16,13 @@ use PHPStan\Type\Type;
 
 final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExtension
 {
-    public function __construct()
+    private ReflectionProvider $reflectionProvider;
+
+    public function __construct(
+        ReflectionProvider $reflectionProvider
+    )
     {
+        $this->reflectionProvider = $reflectionProvider;
     }
 
     public function getClass(): string
@@ -37,13 +42,43 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
         MethodCall $methodCall,
         Scope $scope
     ): Type {
-        // TODO: return the return type of [CommandClass]Handler::handle() instead
-
-        // By default, return the return type of CommandBus::handle()
-        return ParametersAcceptorSelector::selectFromArgs(
+        $defaultType = ParametersAcceptorSelector::selectFromArgs(
             $scope,
             $methodCall->getArgs(),
             $methodReflection->getVariants()
+        )->getReturnType();
+
+        if (!isset($methodCall->getArgs()[0])) {
+            // There's no first argument
+            return $defaultType;
+        }
+
+        $firstArgument = $methodCall->getArgs()[0];
+        $type = $scope->getType($firstArgument->value);
+        if (!$type instanceof ObjectType) {
+            // First argument is not an object
+            return $defaultType;
+        }
+
+        $handlerClass = $type->getClassName() . 'Handler';
+        if (!$this->reflectionProvider->hasClass($handlerClass)) {
+            // There is no handler class
+            return $defaultType;
+        }
+
+        $handlerReflection = $this->reflectionProvider->getClass($handlerClass);
+        if (!$handlerReflection->hasMethod('handle')) {
+            // The handler has no handle method
+            return $defaultType;
+        }
+
+        // Return the return type of handler::handle()
+        $handleMethodReflection = $handlerReflection->getMethod('handle', $scope);
+
+        return ParametersAcceptorSelector::selectFromArgs(
+            $scope,
+            $methodCall->getArgs(),
+            $handleMethodReflection->getVariants()
         )->getReturnType();
     }
 }
