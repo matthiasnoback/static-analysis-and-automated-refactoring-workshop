@@ -40,7 +40,7 @@ final class PostController
 
         $this->postRepository->save($post);
 
-        $encoded = json_encode($post->toArray());
+        $encoded = json_encode($post->toArray(), JSON_THROW_ON_ERROR);
         Assertion::string($encoded);
         // $encoded is a string and not false
 
