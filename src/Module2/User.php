@@ -8,14 +8,10 @@ use InvalidArgumentException;
 
 final class User
 {
-    private string $username;
-
-    private int $age;
-
-    public function __construct(string $username, int $age)
-    {
-        $this->username = $username;
-        $this->age = $age;
+    public function __construct(
+        private string $username,
+        private int $age
+    ) {
     }
 
     /**

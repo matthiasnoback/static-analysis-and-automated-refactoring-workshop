@@ -6,11 +6,9 @@ namespace App\Module8;
 
 final class Counter
 {
-    private int $counter;
-
-    private function __construct(int $startValue)
-    {
-        $this->counter = $startValue;
+    private function __construct(
+        private int $counter
+    ) {
     }
 
     public static function create(): self

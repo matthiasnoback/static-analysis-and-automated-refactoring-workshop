@@ -16,11 +16,9 @@ use PHPStan\Type\Type;
 
 final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExtension
 {
-    private ReflectionProvider $reflectionProvider;
-
-    public function __construct(ReflectionProvider $reflectionProvider)
-    {
-        $this->reflectionProvider = $reflectionProvider;
+    public function __construct(
+        private ReflectionProvider $reflectionProvider
+    ) {
     }
 
     public function getClass(): string

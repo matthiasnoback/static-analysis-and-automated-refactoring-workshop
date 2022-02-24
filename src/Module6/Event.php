@@ -8,11 +8,9 @@ use DateTimeImmutable;
 
 final class Event
 {
-    private DateTimeImmutable $happenedAt;
-
-    public function __construct(DateTimeImmutable $happenedAt)
-    {
-        $this->happenedAt = $happenedAt;
+    public function __construct(
+        private DateTimeImmutable $happenedAt
+    ) {
     }
 
     public function happenedAt(): DateTimeImmutable
