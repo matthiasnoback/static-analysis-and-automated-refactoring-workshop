@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-class Client
+final class Client
 {
     private string $clientId;
 

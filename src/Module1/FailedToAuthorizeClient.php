@@ -6,7 +6,7 @@ namespace App\Module1;
 
 use Exception;
 
-class FailedToAuthorizeClient extends Exception
+final class FailedToAuthorizeClient extends Exception
 {
     public static function becauseClientSecretIsInvalid(string $clientId): self
     {
