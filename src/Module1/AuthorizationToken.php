@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module1;
@@ -6,6 +7,7 @@ namespace App\Module1;
 class AuthorizationToken
 {
     private string $clientId;
+
     private string $token;
 
     public function __construct(string $clientId, string $token)
@@ -16,7 +18,7 @@ class AuthorizationToken
 
     public function isAuthorized(): bool
     {
-        return !is_null($this->clientId);
+        return $this->clientId !== null;
     }
 
     public function token(): string

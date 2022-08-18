@@ -1,7 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Module2;
+
+use RuntimeException;
 
 final class UserRepository
 {
@@ -13,7 +16,7 @@ final class UserRepository
             return $this->users[$userId];
         }
 
-        throw new \RuntimeException('User not found');
+        throw new RuntimeException('User not found');
     }
 
     public function save(int $id, User $user): void

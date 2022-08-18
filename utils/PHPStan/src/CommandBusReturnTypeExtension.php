@@ -1,17 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Utils\PHPStan;
 
 use App\Module10\CommandBus;
-use Assert\Assertion;
 use PhpParser\Node\Expr\MethodCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\ParametersAcceptorSelector;
-use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Type\DynamicMethodReturnTypeExtension;
-use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
 
 final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExtension

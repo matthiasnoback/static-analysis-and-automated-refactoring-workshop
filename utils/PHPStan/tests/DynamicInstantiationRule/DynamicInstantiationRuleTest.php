@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Utils\PHPStan\Tests\DynamicInstantiationRule;
@@ -9,23 +10,13 @@ use Utils\PHPStan\DynamicInstantiationRule;
 
 final class DynamicInstantiationRuleTest extends RuleTestCase
 {
-    protected function getRule(): Rule
-    {
-        return new DynamicInstantiationRule();
-    }
-
     public function testRulePreventsDynamicInstantiation(): void
     {
         $this->markTestIncomplete('Enable this test when working on Module9');
 
         $this->analyse(
             [__DIR__ . '/Fixtures/dynamic-instantiation.php'],
-            [
-                [
-                    'Dynamic class instantiation is not allowed',
-                    3
-                ]
-            ]
+            [['Dynamic class instantiation is not allowed', 3]]
         );
     }
 
@@ -37,5 +28,10 @@ final class DynamicInstantiationRuleTest extends RuleTestCase
             [__DIR__ . '/Fixtures/skip-class-name-instantiation.php'],
             [] // no errors
         );
+    }
+
+    protected function getRule(): Rule
+    {
+        return new DynamicInstantiationRule();
     }
 }
