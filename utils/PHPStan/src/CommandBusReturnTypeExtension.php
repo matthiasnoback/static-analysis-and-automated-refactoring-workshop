@@ -34,10 +34,10 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
         MethodReflection $methodReflection,
         MethodCall $methodCall,
         Scope $scope
-    ): Type {
+    ): ?Type {
         // TODO: return the return type of [CommandClass]Handler::handle() instead
 
-        // By default, return the return type of CommandBus::handle()
+        // By default, return the return type of CommandBus::handle() (or just null)
         return ParametersAcceptorSelector::selectFromArgs(
             $scope,
             $methodCall->getArgs(),
