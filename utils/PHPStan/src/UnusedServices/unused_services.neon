@@ -1,0 +1,15 @@
+services:
+    -
+        class: Utils\PHPStan\UnusedServices\DefinedServiceIdCollector
+        tags:
+            - phpstan.collector
+
+    -
+        class: Utils\PHPStan\UnusedServices\UsedServiceIdCollector
+        tags:
+            - phpstan.collector
+
+    -
+        class: Utils\PHPStan\UnusedServices\UnusedServicesRule
+        tags:
+            - phpstan.rules.rule
