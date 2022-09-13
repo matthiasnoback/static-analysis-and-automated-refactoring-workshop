@@ -25,14 +25,13 @@ final class UnusedServicesRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        /** @var array<string,array<array{DefinedService}>> $definedServiceIdCollectedData */
+        /** @var array<string,array<array<mixed>>> $definedServiceIdCollectedData */
         $definedServiceIdCollectedData = $node->get(DefinedServiceIdCollector::class);
         $serviceDefinitions = [];
 
         foreach ($definedServiceIdCollectedData as $definitions) {
-            foreach ($definitions as $definition) {
-                /** @var DefinedService $definedService */
-                list($definedService) = $definition;
+            foreach ($definitions as $definitionArray) {
+                $definedService = DefinedService::fromArray($definitionArray);
                 $serviceDefinitions[$definedService->serviceId] = $definedService;
             }
         }

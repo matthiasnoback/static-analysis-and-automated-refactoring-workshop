@@ -30,6 +30,6 @@ final class DefinedServiceIdCollector implements Collector
             return null;
         }
 
-        return [new DefinedService($serviceId, $scope->getFile(), $node->getLine())];
+        return (new DefinedService($serviceId, $scope->getFile(), $node->getLine()))->toArray();
     }
 }
