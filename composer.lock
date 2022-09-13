@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9738e21c68b18eeba19bbf8ed0791b2f",
+    "content-hash": "ede1d70ef480ea9754a89a181967d8f3",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -810,16 +810,16 @@
         },
         {
             "name": "matthiasnoback/php-ast-inspector",
-            "version": "v0.3.0",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/matthiasnoback/php-ast-inspector.git",
-                "reference": "efbdd87862770f8b6542b2f6ced2088fab443d73"
+                "reference": "8a041e2a25262680b8d49ec2be5bbd804cfe438c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matthiasnoback/php-ast-inspector/zipball/efbdd87862770f8b6542b2f6ced2088fab443d73",
-                "reference": "efbdd87862770f8b6542b2f6ced2088fab443d73",
+                "url": "https://api.github.com/repos/matthiasnoback/php-ast-inspector/zipball/8a041e2a25262680b8d49ec2be5bbd804cfe438c",
+                "reference": "8a041e2a25262680b8d49ec2be5bbd804cfe438c",
                 "shasum": ""
             },
             "require": {
@@ -830,9 +830,9 @@
             "require-dev": {
                 "phpstan/phpstan": "^1.8.2",
                 "phpunit/phpunit": "^9.5.21",
-                "rector/rector": "^0.12.23",
-                "symplify/coding-standard": "^9.4.70",
-                "symplify/easy-coding-standard": "^9.4.70"
+                "rector/rector": "^0.14.2",
+                "symplify/coding-standard": "^11.1",
+                "symplify/easy-coding-standard": "^11.1"
             },
             "bin": [
                 "composer-bin/ast-inspect"
@@ -846,9 +846,9 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/matthiasnoback/php-ast-inspector/issues",
-                "source": "https://github.com/matthiasnoback/php-ast-inspector/tree/v0.3.0"
+                "source": "https://github.com/matthiasnoback/php-ast-inspector/tree/v0.4.0"
             },
-            "time": "2022-09-05T09:09:28+00:00"
+            "time": "2022-09-09T08:20:37+00:00"
         },
         {
             "name": "myclabs/deep-copy",
