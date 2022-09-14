@@ -18,3 +18,5 @@ parameters:
         - utils/PHPStan/tests/DynamicInstantiationRule/Fixtures
 rules:
     - Utils\PHPStan\DynamicInstantiationRule
+includes:
+    - phpstan-baseline.neon

@@ -9,24 +9,16 @@ use PHPStan\Testing\RuleTestCase;
 use Utils\PHPStan\DynamicInstantiationRule;
 
 /**
- * @extends RuleTestCase<DynamicInstantiationRule>
+ * @extends RuleTestCaseBasedOnAnnotations<DynamicInstantiationRule>
  */
-final class DynamicInstantiationRuleTest extends RuleTestCase
+final class DynamicInstantiationRuleTest extends RuleTestCaseBasedOnAnnotations
 {
-    public function testRulePreventsDynamicInstantiation(): void
+    public function filesToAnalyse(): array
     {
-        $this->analyse(
-            [__DIR__ . '/Fixtures/dynamic-instantiation.php'],
-            [['Dynamic class instantiation is not allowed', 3]]
-        );
-    }
-
-    public function testRuleSkipsNormalClassNameInstantiation(): void
-    {
-        $this->analyse(
-            [__DIR__ . '/Fixtures/skip-class-name-instantiation.php'],
-            [] // no errors
-        );
+        return [
+            __DIR__ . '/Fixtures/dynamic-instantiation.php',
+            __DIR__ . '/Fixtures/skip-class-name-instantiation.php',
+        ];
     }
 
     protected function getRule(): Rule

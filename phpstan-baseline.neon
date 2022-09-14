@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Calling PHPStan\\\\Parser\\\\RichParser\\:\\:parseFile\\(\\) is not covered by backward compatibility promise\\. The method might change in a minor PHPStan version\\.$#"
+			count: 1
+			path: utils/PHPStan/tests/DynamicInstantiationRule/RuleTestCaseBasedOnAnnotations.php
+
+		-
+			message: "#^Calling PHPStan\\\\PhpDoc\\\\PhpDocStringResolver\\:\\:resolve\\(\\) is not covered by backward compatibility promise\\. The method might change in a minor PHPStan version\\.$#"
+			count: 1
+			path: utils/PHPStan/tests/DynamicInstantiationRule/RuleTestCaseBasedOnAnnotations.php
