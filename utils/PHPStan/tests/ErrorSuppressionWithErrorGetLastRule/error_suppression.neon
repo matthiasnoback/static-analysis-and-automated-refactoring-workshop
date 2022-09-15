@@ -1,0 +1,10 @@
+services:
+    -
+        class: Utils\PHPStan\ErrorSuppressionVisitor
+        tags:
+            - phpstan.parser.richParserNodeVisitor
+
+    -
+        class: Utils\PHPStan\ErrorSuppressionWithErrorGetLastRule
+        tags:
+            - phpstan.rules.rule
