@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-class Client
+use InvalidArgumentException;
+final class Client
 {
     private string $apiKey;
 
@@ -14,7 +15,7 @@ class Client
 
         if ($apiKey === null) {
             // $apiKey is null
-            throw new \InvalidArgumentException('...');
+            throw new InvalidArgumentException('...');
         }
 
         // $apiKey is string

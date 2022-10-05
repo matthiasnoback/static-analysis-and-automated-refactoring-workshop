@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Module1;
 
-class RandomTokenGenerator implements TokenGenerator
+final class RandomTokenGenerator implements TokenGenerator
 {
     public function generate(): string
     {

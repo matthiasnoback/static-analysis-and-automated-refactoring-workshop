@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use App\Module10\Workshop;
 
 use App\Module10\CancelWorkshop;
 use App\Module10\CommandBus;
@@ -10,7 +11,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 $commandBus = new CommandBus();
 
-/** @var \App\Module10\Workshop $workshop */
+/** @var Workshop $workshop */
 $workshop = $commandBus->handle(new PlanWorkshop('PHPStan'));
 
 echo $workshop->title();
