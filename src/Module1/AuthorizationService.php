@@ -6,14 +6,8 @@ namespace App\Module1;
 
 final class AuthorizationService
 {
-    private TokenGenerator $tokenGenerator;
-
-    private ClientRepository $clientRepository;
-
-    public function __construct(ClientRepository $clientRepository, TokenGenerator $tokenGenerator)
+    public function __construct(private readonly ClientRepository $clientRepository, private readonly TokenGenerator $tokenGenerator)
     {
-        $this->clientRepository = $clientRepository;
-        $this->tokenGenerator = $tokenGenerator;
     }
 
     public function authorize(string $clientId, string $clientSecret): AuthorizationToken

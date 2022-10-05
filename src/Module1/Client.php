@@ -8,7 +8,7 @@ use InvalidArgumentException;
 
 final class Client
 {
-    private string $apiKey;
+    private readonly string $apiKey;
 
     public function __construct(?string $apiKey)
     {

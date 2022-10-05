@@ -4,17 +4,14 @@ declare(strict_types=1);
 
 use NonExistingClass;
 
-/**
- * @return bool|int
- */
-function isBadFunction(array $whatIsInsideWeDoNotKnow, $thisHasNoType)
+function isBadFunction(array $whatIsInsideWeDoNotKnow, $thisHasNoType): bool|int
 {
     if ($thisHasNoType) {
         return true;
     }
 
     $object = new NonExistingClass();
-    if (count($object)) {
+    if (is_countable($object) ? count($object) : 0) {
         return false;
     }
 

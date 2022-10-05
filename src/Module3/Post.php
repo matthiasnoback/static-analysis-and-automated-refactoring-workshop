@@ -9,7 +9,7 @@ use App\Module2\Mapping;
 final class Post
 {
     private function __construct(
-        private string $title
+        private readonly string $title
     ) {
     }
 

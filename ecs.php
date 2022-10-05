@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpCsFixer\Fixer\PhpUnit\PhpUnitStrictFixer;
 
+use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
@@ -14,6 +15,12 @@ return static function (ECSConfig $config): void {
             PhpUnitStrictFixer::class,
             __DIR__ . '/utils/PHPStan/tests/DynamicInstantiationRule/Fixtures',
             __DIR__ . '/utils/PHPStan/tests/CommandBusReturnTypeExtension/Fixtures',
+        ]
+    );
+    $config->ruleWithConfiguration(
+        LineLengthFixer::class,
+        [
+            LineLengthFixer::LINE_LENGTH => 72
         ]
     );
 

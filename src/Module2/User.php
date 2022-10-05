@@ -6,14 +6,8 @@ namespace App\Module2;
 
 final class User
 {
-    private string $username;
-
-    private int $age;
-
-    public function __construct(string $username, int $age)
+    public function __construct(private readonly string $username, private readonly int $age)
     {
-        $this->username = $username;
-        $this->age = $age;
     }
 
     /**

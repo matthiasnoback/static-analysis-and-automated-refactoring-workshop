@@ -6,11 +6,8 @@ namespace App\Module10;
 
 final class PlanWorkshop
 {
-    private string $title;
-
-    public function __construct(string $title)
+    public function __construct(private readonly string $title)
     {
-        $this->title = $title;
     }
 
     public function title(): string

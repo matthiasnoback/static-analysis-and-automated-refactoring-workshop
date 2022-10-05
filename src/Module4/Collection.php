@@ -13,16 +13,10 @@ use IteratorAggregate;
 final class Collection implements IteratorAggregate
 {
     /**
-     * @var array<int,mixed>
-     */
-    private array $values;
-
-    /**
      * @param array<int,mixed> $values
      */
-    public function __construct(array $values)
+    public function __construct(private array $values)
     {
-        $this->values = $values;
     }
 
     /**
@@ -33,10 +27,7 @@ final class Collection implements IteratorAggregate
         return $this->values[array_key_first($this->values)];
     }
 
-    /**
-     * @param mixed $value
-     */
-    public function add($value): void
+    public function add(mixed $value): void
     {
         $this->values[] = $value;
     }
