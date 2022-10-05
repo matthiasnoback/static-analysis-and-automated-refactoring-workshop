@@ -6,5 +6,5 @@ namespace App\Module1;
 
 interface ClientRepository
 {
-    public function findClientById(string $clientId): ?Client;
+    public function findClientById(string $clientId): Client;
 }

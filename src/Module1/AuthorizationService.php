@@ -6,7 +6,8 @@ namespace App\Module1;
 
 class AuthorizationService
 {
-    private RandomTokenGenerator $tokenGenerator;
+    private TokenGenerator $tokenGenerator;
+    private ClientRepository $clientRepository;
 
     public function __construct(ClientRepository $clientRepository, TokenGenerator $tokenGenerator)
     {
@@ -24,6 +25,6 @@ class AuthorizationService
 
         $token = $this->tokenGenerator->generate();
 
-        return $token;
+        return new AuthorizationToken($clientId, $token);
     }
 }
