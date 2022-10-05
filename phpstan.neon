@@ -12,8 +12,14 @@ parameters:
         - src/Module8
         - src/Module9
 #        - src/Module10
+        - utils
+    excludePaths:
+        - utils/PHPStan/tests/*/Fixtures/*
     stubFiles:
         - utils/PHPStan/src/stubs/laravel/framework/Helpers.php
 
 includes:
     - phpstan-baseline.neon
+
+rules:
+    - Utils\PHPStan\DynamicInstantiationRule

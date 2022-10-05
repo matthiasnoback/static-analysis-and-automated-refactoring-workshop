@@ -10,6 +10,9 @@ use PhpParser\Node\Expr\New_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 
+/**
+ * @implements Rule<New_>
+ */
 final class DynamicInstantiationRule implements Rule
 {
     public function getNodeType(): string

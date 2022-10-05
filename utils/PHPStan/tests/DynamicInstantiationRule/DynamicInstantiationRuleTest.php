@@ -9,7 +9,7 @@ use PHPStan\Testing\RuleTestCase;
 use Utils\PHPStan\DynamicInstantiationRule;
 
 /**
- * @group wip
+ * @extends RuleTestCase<DynamicInstantiationRule>
  */
 final class DynamicInstantiationRuleTest extends RuleTestCase
 {
