@@ -7,15 +7,18 @@ namespace App\Module4;
 use ArrayIterator;
 use IteratorAggregate;
 
+/**
+ * @implements IteratorAggregate<int,mixed>
+ */
 final class Collection implements IteratorAggregate
 {
     /**
-     * @var array<mixed>
+     * @var array<int,mixed>
      */
     private array $values;
 
     /**
-     * @param array<mixed> $values
+     * @param array<int,mixed> $values
      */
     public function __construct(array $values)
     {
@@ -38,6 +41,9 @@ final class Collection implements IteratorAggregate
         $this->values[] = $value;
     }
 
+    /**
+     * @return ArrayIterator<int,mixed>
+     */
     public function getIterator(): ArrayIterator
     {
         return new ArrayIterator($this->values);
