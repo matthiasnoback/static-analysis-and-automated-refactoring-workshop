@@ -1,0 +1,6 @@
+services:
+    -
+        class: Utils\PHPStan\UseNamedConstructorRule
+        tags:
+            - phpstan.rules.rule
+
