@@ -15,7 +15,13 @@ final class PostController
 
     public function create(): string
     {
-        $post = Post::fromArray(json_decode(file_get_contents('php://input')));
+        $contents = file_get_contents('php://input');
+        Assertion::string($contents);
+
+        $decoded = json_decode($contents, true);
+        Assertion::isArray($decoded);
+
+        $post = Post::fromArray($decoded);
 
         $this->postRepository->save($post);
 

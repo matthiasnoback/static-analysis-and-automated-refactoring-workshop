@@ -8,7 +8,7 @@ use Assert\Assertion;
 final class Mapping
 {
     /**
-     * @param array<string,string|null> $record
+     * @param array<mixed> $record
      */
     public static function getString(array $record, string $key): string
     {
