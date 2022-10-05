@@ -1,0 +1,26 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$happenedAt of class App\\\\Module6\\\\Event constructor expects DateTimeImmutable, DateTimeImmutable\\|false given\\.$#"
+			count: 1
+			path: src/Module6/okay.php
+
+		-
+			message: "#^Function isBadFunction\\(\\) has parameter \\$thisHasNoType with no type specified\\.$#"
+			count: 1
+			path: src/Module7/bad_file.php
+
+		-
+			message: "#^Function isBadFunction\\(\\) has parameter \\$whatIsInsideWeDoNotKnow with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Module7/bad_file.php
+
+		-
+			message: "#^Instantiated class NonExistingClass not found\\.$#"
+			count: 1
+			path: src/Module7/bad_file.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, NonExistingClass given\\.$#"
+			count: 1
+			path: src/Module7/bad_file.php
