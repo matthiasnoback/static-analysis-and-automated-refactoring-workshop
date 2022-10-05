@@ -16,6 +16,9 @@ final class User
         $this->age = $age;
     }
 
+    /**
+     * @return array<string,string|int|null>
+     */
     public function asDatabaseRecord(): array
     {
         return [
@@ -24,8 +27,17 @@ final class User
         ];
     }
 
+    /**
+     * @param array<string,string|null> $record
+     */
     public static function fromDatabaseRecord(array $record): self
     {
-        return new self($record['username'], $record['age']);
+        assert(array_key_exists('username', $record));
+        assert(is_string($record['username']));
+
+        assert(array_key_exists('age', $record));
+        assert(is_string($record['age']));
+
+        return new self($record['username'], (int) $record['age']);
     }
 }

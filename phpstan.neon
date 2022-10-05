@@ -3,7 +3,7 @@ parameters:
     paths:
         - src/Module0
         - src/Module1
-#        - src/Module2
+        - src/Module2
 #        - src/Module3
 #        - src/Module4
 #        - src/Module5

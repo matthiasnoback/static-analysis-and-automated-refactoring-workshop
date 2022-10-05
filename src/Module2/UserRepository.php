@@ -8,7 +8,10 @@ use RuntimeException;
 
 final class UserRepository
 {
-    private $users;
+    /**
+     * @var array<int,User>
+     */
+    private array $users;
 
     public function getById(int $userId): User
     {
