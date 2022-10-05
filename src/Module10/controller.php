@@ -10,12 +10,9 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 $commandBus = new CommandBus();
 
+/** @var \App\Module10\Workshop $workshop */
 $workshop = $commandBus->handle(new PlanWorkshop('PHPStan'));
 
-// Bug: calling getTitle() but Workshop has no such method
-echo $workshop->getTitle();
+echo $workshop->title();
 
-$workshop = $commandBus->handle(new CancelWorkshop());
-
-// Bug: calling getTitle() but CancelWorkshopHandler returns void
-echo $workshop->getTitle();
+$commandBus->handle(new CancelWorkshop());
