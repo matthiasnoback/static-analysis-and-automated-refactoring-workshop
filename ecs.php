@@ -17,12 +17,9 @@ return static function (ECSConfig $config): void {
             __DIR__ . '/utils/PHPStan/tests/CommandBusReturnTypeExtension/Fixtures',
         ]
     );
-    $config->ruleWithConfiguration(
-        LineLengthFixer::class,
-        [
-            LineLengthFixer::LINE_LENGTH => 72
-        ]
-    );
+    $config->ruleWithConfiguration(LineLengthFixer::class, [
+        LineLengthFixer::LINE_LENGTH => 72,
+    ]);
 
     $config->sets([SetList::CONTROL_STRUCTURES, SetList::PSR_12, SetList::COMMON, SetList::SYMPLIFY]);
 };

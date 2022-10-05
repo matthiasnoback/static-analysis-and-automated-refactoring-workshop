@@ -6,8 +6,10 @@ namespace App\Module1;
 
 final class AuthorizationService
 {
-    public function __construct(private readonly ClientRepository $clientRepository, private readonly TokenGenerator $tokenGenerator)
-    {
+    public function __construct(
+        private readonly ClientRepository $clientRepository,
+        private readonly TokenGenerator $tokenGenerator
+    ) {
     }
 
     public function authorize(string $clientId, string $clientSecret): AuthorizationToken

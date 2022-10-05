@@ -6,8 +6,10 @@ namespace App\Module2;
 
 final class User
 {
-    public function __construct(private readonly string $username, private readonly int $age)
-    {
+    public function __construct(
+        private readonly string $username,
+        private readonly int $age
+    ) {
     }
 
     /**
