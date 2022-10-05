@@ -6,9 +6,6 @@ namespace Utils\PHPStan\Tests\CommandBusReturnTypeExtension;
 
 use PHPStan\Testing\TypeInferenceTestCase;
 
-/**
- * @group wip
- */
 final class CommandBusReturnTypeExtensionTest extends TypeInferenceTestCase
 {
     /**

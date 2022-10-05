@@ -1,11 +1,12 @@
 <?php
 
 declare(strict_types=1);
-use App\Module10\Workshop;
 
 use App\Module10\CancelWorkshop;
+
 use App\Module10\CommandBus;
 use App\Module10\PlanWorkshop;
+use App\Module10\Workshop;
 
 require __DIR__ . '/../../vendor/autoload.php';
 

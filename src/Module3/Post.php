@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Module3;
 
 use App\Module2\Mapping;
-use Assert\Assertion;
 
 final class Post
 {

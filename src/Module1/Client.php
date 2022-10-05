@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Module1;
 
 use InvalidArgumentException;
+
 final class Client
 {
     private string $apiKey;

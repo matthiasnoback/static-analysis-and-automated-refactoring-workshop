@@ -18,8 +18,7 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
 {
     public function __construct(
         private ReflectionProvider $reflectionProvider
-    )
-    {
+    ) {
     }
 
     public function getClass(): string
@@ -52,12 +51,12 @@ final class CommandBusReturnTypeExtension implements DynamicMethodReturnTypeExte
 
         $handlerClassName = $type->getClassName() . 'Handler';
 
-        if (!$this->reflectionProvider->hasClass($handlerClassName)) {
+        if (! $this->reflectionProvider->hasClass($handlerClassName)) {
             return null;
         }
 
         $handlerClass = $this->reflectionProvider->getClass($handlerClassName);
-        if (!$handlerClass->hasMethod('handle')) {
+        if (! $handlerClass->hasMethod('handle')) {
             return null;
         }
         $handlerHandleMethod = $handlerClass->getMethod('handle', $scope);

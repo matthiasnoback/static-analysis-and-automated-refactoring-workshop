@@ -32,9 +32,6 @@ final class User
      */
     public static function fromDatabaseRecord(array $record): self
     {
-        return new self(
-            Mapping::getString($record, 'username'),
-            Mapping::getInteger($record, 'age'),
-        );
+        return new self(Mapping::getString($record, 'username'), Mapping::getInteger($record, 'age'),);
     }
 }

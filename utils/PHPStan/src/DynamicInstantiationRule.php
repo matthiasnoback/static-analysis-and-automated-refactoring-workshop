@@ -26,9 +26,7 @@ final class DynamicInstantiationRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         if ($node->class instanceof Expr) {
-            return [
-                'Dynamic class instantiation is not allowed'
-            ];
+            return ['Dynamic class instantiation is not allowed'];
         }
 
         // Everything is okay

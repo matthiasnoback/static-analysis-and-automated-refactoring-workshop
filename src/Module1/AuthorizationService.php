@@ -7,6 +7,7 @@ namespace App\Module1;
 final class AuthorizationService
 {
     private TokenGenerator $tokenGenerator;
+
     private ClientRepository $clientRepository;
 
     public function __construct(ClientRepository $clientRepository, TokenGenerator $tokenGenerator)
