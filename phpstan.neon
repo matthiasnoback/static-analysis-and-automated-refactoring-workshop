@@ -9,9 +9,11 @@ parameters:
         - src/Module5
         - src/Module6
         - src/Module7
-#        - src/Module8
+        - src/Module8
 #        - src/Module9
 #        - src/Module10
+    stubFiles:
+        - utils/PHPStan/src/stubs/laravel/framework/Helpers.php
 
 includes:
     - phpstan-baseline.neon
