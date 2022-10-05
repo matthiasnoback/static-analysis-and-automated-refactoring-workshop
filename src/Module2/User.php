@@ -32,12 +32,9 @@ final class User
      */
     public static function fromDatabaseRecord(array $record): self
     {
-        assert(array_key_exists('username', $record));
-        assert(is_string($record['username']));
-
-        assert(array_key_exists('age', $record));
-        assert(is_string($record['age']));
-
-        return new self($record['username'], (int) $record['age']);
+        return new self(
+            Mapping::getString($record, 'username'),
+            Mapping::getInteger($record, 'age'),
+        );
     }
 }
